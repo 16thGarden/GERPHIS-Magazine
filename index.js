@@ -25,6 +25,6 @@ const server = app.listen(port, function() {
 
 app.get("/", function(req, res) {
     res.render("home", {
-        title: "GERPHIS Magazine"
+        title: "Dalisay - GERPHIS Magazine (Group Frog)"
     });
 })
