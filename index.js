@@ -23,8 +23,20 @@ const server = app.listen(port, function() {
     console.log("App listening at port "  + port);
 });
 
+let imageCount = 16
+var paths = []
+for (var i = 0; i < imageCount; i += 2) {
+    paths.push({
+        front: "images/" + (i + 1) + ".png",
+        back: "images/" + (i + 2) + ".png"
+    })
+}
+console.log(paths)
+
+
 app.get("/", function(req, res) {
     res.render("home", {
-        title: "Dalisay - GERPHIS Magazine (Group Frog)"
+        title: "Dalisay - GERPHIS Magazine (Group Frog)",
+        paths: paths
     });
 })
