@@ -1,15 +1,18 @@
-// References to DOM Elements
-const prevBtn = document.querySelector("#prev-btn");
-const nextBtn = document.querySelector("#next-btn");
 const book = document.querySelector("#book");
+$("#book").click(function(e){
+    var pWidth = $(this).innerWidth(); //use .outerWidth() if you want borders
+    var pOffset = $(this).offset(); 
+    var x = e.pageX - pOffset.left;
+    if(pWidth / 1000000 > x)
+        goPrevPage()
+    else
+        goNextPage()
+});
 
 var papers = Array.from(document.querySelectorAll(".paper"))
 for (var i = 1; i < papers.length; i++) {
     papers[i].style.zIndex = papers.length - i
 }
-
-prevBtn.addEventListener("click", goPrevPage);
-nextBtn.addEventListener("click", goNextPage);
 
 let currentLocation = 1;
 let numOfPapers = papers.length - 1;
@@ -17,8 +20,6 @@ let maxLocation = papers.length;
 
 function openBook() {
     book.style.transform = "translateX(50%)";
-    prevBtn.style.transform = "translateX(-33.5825vh)";
-    nextBtn.style.transform = "translateX(33.5825vh)";
 }
 
 function closeBook(isAtBeginning) {
@@ -27,9 +28,6 @@ function closeBook(isAtBeginning) {
     } else {
         book.style.transform = "translateX(100%)";
     }
-    
-    prevBtn.style.transform = "translateX(0px)";
-    nextBtn.style.transform = "translateX(0px)";
 }
 
 function setIndexDelay(paper, index) {
@@ -47,6 +45,7 @@ function goNextPage() {
         }
 
         papers[currentLocation].classList.add("flipped");
+
         if (currentLocation > Math.floor(maxLocation / 2) + 1) {
             papers[currentLocation].style.zIndex = currentLocation;
         } else {

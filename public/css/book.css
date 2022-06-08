@@ -17,8 +17,8 @@
 /* Book */
 .book {
     position: relative;
-    width: 67.165vh;
-    height: 95vh;
+    width: 30vw;
+    height: 42.42vw;
     transition: transform 0.5s;
 }
 
