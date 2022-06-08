@@ -46,7 +46,9 @@ function goNextPage() {
 
         papers[currentLocation].classList.add("flipped");
 
-        if (currentLocation > Math.floor(maxLocation / 2) + 1) {
+        if (currentLocation == maxLocation / 2 + 1) {
+            papers[currentLocation].style.zIndex = currentLocation;
+        } else if (currentLocation > Math.floor(maxLocation / 2) + 1) {
             papers[currentLocation].style.zIndex = currentLocation;
         } else {
             setIndexDelay(papers[currentLocation], currentLocation)
@@ -66,7 +68,9 @@ function goPrevPage() {
         
         papers[currentLocation - 1].classList.remove("flipped");
 
-        if (currentLocation > Math.floor(maxLocation / 2) + 2) {
+        if (currentLocation == maxLocation / 2 + 2) {
+            setIndexDelay(papers[currentLocation - 2], maxLocation - currentLocation + 1)
+        } if (currentLocation > Math.floor(maxLocation / 2) + 2) {
             setIndexDelay(papers[currentLocation - 1], maxLocation - currentLocation + 1)
         } else {
             papers[currentLocation - 1].style.zIndex = maxLocation - currentLocation + 1;
