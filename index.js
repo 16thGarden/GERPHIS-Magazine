@@ -31,8 +31,6 @@ for (var i = 0; i < imageCount; i += 2) {
         back: "images/" + (i + 2) + ".png"
     })
 }
-console.log(paths)
-
 
 app.get("/", function(req, res) {
     res.render("home", {
