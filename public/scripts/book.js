@@ -1,4 +1,5 @@
 const book = document.querySelector("#book");
+const clue = document.querySelector("#clue");
 $("#book").click(function(e){
     var pWidth = $(this).innerWidth(); //use .outerWidth() if you want borders
     var pOffset = $(this).offset(); 
@@ -17,6 +18,22 @@ for (var i = 1; i < papers.length; i++) {
 let currentLocation = 1;
 let numOfPapers = papers.length - 1;
 let maxLocation = papers.length;
+var interacted = false;
+showClue();
+
+function showClue() {
+    setTimeout(function() {
+        if (!interacted) {
+            clue.style.color = "black";
+            clue.style.border = "1px solid black";
+        }
+    }, 5000);
+}
+
+function hideClue() {
+    clue.style.color = "azure";
+    clue.style.border = "";
+}
 
 function openBook() {
     book.style.transform = "translateX(50%)";
@@ -37,6 +54,8 @@ function setIndexDelay(paper, index) {
 }    
 
 function goNextPage() {
+    interacted = true;
+    hideClue();
     if(currentLocation < maxLocation) {
         if (currentLocation == 1) {
             openBook();

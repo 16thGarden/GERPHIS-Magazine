@@ -4,9 +4,14 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: azure;
+}
+
 .book-container {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -14,7 +19,6 @@
     background-color: azure;
 }
 
-/* Book */
 .book {
     position: relative;
     width: 30vw;
@@ -29,7 +33,6 @@
     top: 0;
     left: 0;
     perspective: 1500px;
-
 }
 
 .front,
@@ -47,7 +50,6 @@
 .front {
     z-index: 1;
     backface-visibility: hidden;
-    border-left: 3px solid powderblue;
 }
 
 .back {
@@ -67,32 +69,9 @@
     transform: rotateY(180deg)
 }
 
-/* Paper flip effect */
 .flipped .front,
 .flipped .back {
     transform: rotateY(-180deg);
-}
-
-/* Controller Buttons */
-button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    margin: 10px;
-    transition: transform 0.5s;
-}
-
-button:focus {
-    outline: none;
-}
-
-button:hover i {
-    color: #636363;
-}
-
-i {
-    font-size: 50px;
-    color: gray;
 }
 
 img {
@@ -102,4 +81,11 @@ img {
 
 #filler {
     display: none;
+}
+
+#clue {
+    color: azure;
+    margin-top: 0.3vw;
+    padding: 0.3vw;
+    font-size: 1.5vw;
 }
