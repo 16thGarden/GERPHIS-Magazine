@@ -20,6 +20,7 @@ body {
 }
 
 .book {
+    cursor: pointer;
     position: relative;
     width: 30vw;
     height: 42.42vw;
