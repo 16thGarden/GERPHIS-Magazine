@@ -23,7 +23,7 @@ const server = app.listen(port, function() {
     console.log("App listening at port "  + port);
 });
 
-let imageCount = 16
+let imageCount = 26
 var paths = []
 for (var i = 0; i < imageCount; i += 2) {
     paths.push({
